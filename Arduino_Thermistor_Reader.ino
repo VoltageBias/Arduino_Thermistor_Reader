@@ -2,8 +2,10 @@
 // Voltage Bias - the Blog.
 // Gilbert Waltoon, Oct 2016
 
-// Reads the voltage of a thermistor voltage divider
-// and converts to temperature.
+// Released under a GNU General Public License v3.0 
+
+// PURPOSE: Reads the voltage of a thermistor voltage divider
+//          and converts to temperature.
 
 // Input pin for thermistor voltage measurement
 #define THERMISTORPIN A5
