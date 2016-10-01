@@ -9,7 +9,7 @@
 #define THERMISTORPIN A5
 
 // the value of the bias resistor
-#define NON_THERMISTOR_RESISTOR 9926
+#define BIAS_RESISTOR 9926
 
  //beta of thermistor 
 #define BCOEFFICIENT 3933 //RComponents, type 151-237
@@ -29,9 +29,9 @@ void setup() {
   //start the serial monitor for printing to screen
   Serial.begin(9600);
   }
-  
+ 
+////////////////////////////////////////////////////////////
 void loop() {
-  Serial.print("Testing=");
   float msgData = getThermistorTemperature();
   Serial.print("Temperature="); Serial.println(msgData);
   delay(2000);
@@ -47,7 +47,7 @@ float getThermistorTemperature(void) {
   fADCReading = analogRead(THERMISTORPIN);
  
   // get the thermistor resistance from ADC reading
-  fThermistance = NON_THERMISTOR_RESISTOR/((1023 / fADCReading)  - 1);
+  fThermistance = BIAS_RESISTOR/((1023 / fADCReading)  - 1);
 
   // convert resistance to temperature using the Beta equation
   // see https://en.wikipedia.org/wiki/Thermistor
